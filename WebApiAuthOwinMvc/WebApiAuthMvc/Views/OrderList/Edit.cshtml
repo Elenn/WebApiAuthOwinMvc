@@ -1,0 +1,60 @@
+﻿@model WebApiAuthMvc.Models.Order
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+} 
+
+<h2>Edit</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+<fieldset>
+
+    <legend>Edit Order</legend>
+
+    @Html.HiddenFor(model => model.OrderID)
+    <div class="row">
+        <div class="editor-label col-sm-2">
+            @Html.LabelFor(model => model.CustomerName)
+        </div>
+        <div class="col-sm-3">
+            <div class="editor-field form-control">
+                @Html.EditorFor(model => model.CustomerName)
+                @Html.ValidationMessageFor(model => model.CustomerName)
+            </div>
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="editor-label col-sm-2">
+            @Html.LabelFor(model => model.ShipperCity)
+        </div>
+        <div class="col-sm-3">
+            <div class="editor-field form-control">
+                @Html.EditorFor(model => model.ShipperCity)
+                @Html.ValidationMessageFor(model => model.ShipperCity)
+            </div>
+        </div>
+        </div>
+    <div class="row">
+        <div class="editor-label col-sm-2">
+            @Html.LabelFor(model => model.IsShipped)
+        </div>
+        <div class="col-sm-3">
+            <div class="editor-field">
+                @Html.EditorFor(model => model.IsShipped)
+                @Html.ValidationMessageFor(model => model.IsShipped)
+            </div>
+        </div>
+    </div>
+        <p class="col-sm-1 btn btn-default">
+            <input type="submit" value="Save" />
+        </p>
+</fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
